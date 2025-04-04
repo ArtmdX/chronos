@@ -20,7 +20,7 @@ A Técnica Pomodoro é um método de gerenciamento de tempo que divide o trabalh
 
 ## 📷 Imagem da Interface (opcional)
 
-![Imagem da interface do Chronos](https://imgur.com/fkS3J0Q)
+![Imagem da interface do Chronos](https://i.imgur.com/fkS3J0Q.png)
 
 ## 🛠️ Tecnologias Utilizadas
 
