@@ -18,7 +18,7 @@ A Técnica Pomodoro é um método de gerenciamento de tempo que divide o trabalh
 
 👉 [Chronos - Pomodoro App](https://chronosreact.netlify.app/)
 
-## 📷 Imagem da Interface (opcional)
+## 📷 Imagem da Interface
 
 ![Imagem da interface do Chronos](https://i.imgur.com/fkS3J0Q.png)
 
