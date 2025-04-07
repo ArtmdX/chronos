@@ -8,10 +8,10 @@ import { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
-import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 export function MainForm() {
-  const { state, setState } = useTaskContext();
+  const { state, dispatch } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
 
   //ciclos
@@ -40,22 +40,13 @@ export function MainForm() {
       type: nextCycleType,
     };
 
-    const secondsRemaining = newTask.duration * 60;
-
-    setState(prevState => {
-      return {
-        ...prevState,
-        config: { ...prevState.config },
-        activeTask: newTask,
-        currentCycle: nextCycle,
-        secondsRemaining,
-        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
-        tasks: [...prevState.tasks, newTask],
-      };
-    });
-
-    console.log(taskName);
+    dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
   }
+
+  function handleInterruptTask() {
+    dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
+  }
+
   return (
     <form onSubmit={handleCreateNewTask} action='' className={styles.form}>
       <div className={styles.formRow}>
@@ -79,20 +70,22 @@ export function MainForm() {
       )}
 
       <div className={styles.formRow}>
-        {!state.activeTask ? (
+        {!state.activeTask && (
           <DefaultButton
             aria-label='Iniciar nova tarefa'
             title='Iniciar nova tarefa'
             type='submit'
             icon={<PlayCircleIcon />}
           />
-        ) : (
+        )}
+        {!!state.activeTask && (
           <DefaultButton
-            type='submit'
+            type='button'
             aria-label='Interromper tarefa atual'
             title='Interromper tarefa atual'
             color='red'
             icon={<StopCircleIcon />}
+            onClick={handleInterruptTask}
           />
         )}
       </div>
