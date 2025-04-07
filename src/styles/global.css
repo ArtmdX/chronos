@@ -13,6 +13,6 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.6rem;
   background: rgb(10, 15, 26);
-  background: var(--gray-gradient);
+  background: var(--bg-gradient);
   color: var(--text-default);
 }

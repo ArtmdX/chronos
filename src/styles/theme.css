@@ -1,65 +1,116 @@
+/*
+🎨 Estrutura de cores do projeto
+
+🔹 Cores Dinâmicas (mudam entre os temas claro/escuro)
+   - Essas cores se adaptam ao tema escolhido pelo usuário.
+   - Exemplo: `gray-900` será escuro no modo dark e claro no modo light.
+
+🔸 Cores Fixas (não mudam entre os temas)
+   - São usadas para botões, alertas e destaques.
+   - Exemplo: `primary`, `success`, `error` sempre terão os mesmos tons.
+
+📝 Estrutura:
+   - Fundo geral: `gray-900` (dinâmico)
+   - Cards/caixas: `gray-800` (dinâmico)
+   - Bordas/separadores: `gray-700` ou `gray-600` (dinâmico)
+   - Texto principal: `--text-default` (dinâmico)
+   - Texto secundário/placeholders: `--text-muted` (dinâmico)
+   - Hover/ativo: `gray-700` e `gray-600` ou conforme preferir (dinâmico)
+
+🚨 Atenção aos comentários! Eles descrevem cada categoria de cores e sua função.
+*/
+
 :root {
-  --gray-100: #e6e9f0;
+  /* 🎭 Tons de Cinza (cores dinâmicas que mudam entre claro/escuro) */
+  --gray-100: #e6e9f0; /* Cinza mais claro (usado para fundos no modo escuro) */
   --gray-200: #cdd3e1;
   --gray-300: #aab3cc;
   --gray-400: #555f7d;
   --gray-500: #454f6a;
   --gray-600: #363d56;
-  --gray-700: #272f43;
-  --gray-800: #181f2e;
-  --gray-900: #0a0f1a;
-  --gray-gradient: linear-gradient(
+  --gray-700: #272f43; /* Bordas e separadores */
+  --gray-800: #181f2e; /* Fundo de cartões e áreas destacadas */
+  --gray-900: #0a0f1a; /* Fundo principal do site */
+
+  --bg-gradient: linear-gradient(
     165deg,
     rgba(10, 15, 26, 1) 34%,
     rgba(39, 47, 67, 1) 100%
   );
 
-  --primary-light: #4de7b7;
-  --primary: #0da170;
-  --primary-dark: #065f46;
+  /* 🌿 Cores Primárias (cores fixas - NÃO mudam com o tema) */
+  --primary-light: #4de7b7; /* Usado para realces suaves */
+  --primary: #0da170; /* Cor principal do projeto */
+  --primary-dark: #065f46; /* Usado em hovers e elementos ativos */
 
-  --link-color: #10b981;
-  --link-hover: #0b8a60;
+  /* 🔗 Links */
+  --link-color: #10b981; /* Cor padrão dos links */
+  --link-hover: #0b8a60; /* Cor dos links ao passar o mouse */
 
-  --success: #22c55e;
-  --warning: #eab308;
-  --error: #991b1b;
-  --info: #0ea5e9;
+  /* 🚦 Alertas (cores fixas, usadas para feedbacks visuais) */
+  --success: #22c55e; /* Indica sucesso (verde) */
+  --warning: #eab308; /* Indica alerta (amarelo) */
+  --error: #991b1b; /* Indica erro (vermelho) */
+  --info: #0ea5e9; /* Indica informação (azul) */
 
-  --text-over-primary: #0a0f1a;
-  --text-over-primary-dark: #e6e9f0;
-  --text-over-primary-light: #0a0f1a;
-  --text-over-success: #0a0f1a;
-  --text-over-warning: #0a0f1a;
-  --text-over-error: #e6e9f0;
-  --text-over-info: #0a0f1a;
+  /* 🎨 Texto sobre fundos coloridos (para garantir contraste) */
+  --text-over-primary: #0a0f1a; /* Texto sobre fundo primário */
+  --text-over-primary-dark: #e6e9f0; /* Texto sobre variação escura */
+  --text-over-primary-light: #0a0f1a; /* Texto sobre variação clara */
+  --text-over-success: #0a0f1a; /* Texto sobre fundo sucesso */
+  --text-over-warning: #0a0f1a; /* Texto sobre fundo alerta */
+  --text-over-error: #e6e9f0; /* Texto sobre fundo erro */
+  --text-over-info: #0a0f1a; /* Texto sobre fundo informativo */
 
-  --text-default: #e6e9f0;
-  --text-muted: #aab3cc;
+  /* 📝 Cores do Texto (dinâmicas) */
+  --text-default: #e6e9f0; /* Cor padrão do texto */
+  --text-muted: #aab3cc; /* Texto menos importante (placeholders, labels, etc.) */
 
-  --disabled: #555f7d;
-  --text-disabled: #aab3cc;
+  /* 🚫 Cores para botões e elementos desativados */
+  --disabled: #555f7d; /* Cor de fundo de elementos desativados */
+  --text-disabled: #aab3cc; /* Texto de botões ou inputs desativados */
+
+  /* 🔔 Cores do Toastify (notificações) */
+  --toastify-color-light: var(--text-default);
+  --toastify-color-dark: var(--text-default);
+  --toastify-color-info: var(--info);
+  --toastify-color-success: var(--success);
+  --toastify-color-warning: var(--warning);
+  --toastify-color-error: var(--error);
+  --toastify-text-color-light: #0a0f1a;
+  --toastify-text-color-dark: #e6e9f0;
+  --toastify-color-progress-light: var(--primary);
+  --toastify-color-progress-dark: var(--primary);
 }
 
+/* 🌞 Modo Claro - Inverte algumas cores para manter o contraste */
 :root[data-theme='light'] {
-  --gray-900: #e6e9f0;
-  --gray-800: #cdd3e1;
-  --gray-700: #aab3cc;
-  --gray-600: #555f7d;
-  --gray-500: #454f6a;
-  --gray-400: #363d56;
-  --gray-300: #272f43;
+  /* Tons de Cinza Invertidos */
+  --gray-100: #0a0f1a; /* Cinza mais escuro */
   --gray-200: #181f2e;
-  --gray-100: #0a0f1a;
-  --gray-gradient: linear-gradient(
-    326deg,
-    rgba(85, 95, 125, 1) 0%,
-    rgba(205, 211, 225, 1) 39%
+  --gray-300: #272f43;
+  --gray-400: #363d56;
+  --gray-500: #454f6a;
+  --gray-600: #555f7d;
+  --gray-700: #aab3cc;
+  --gray-800: #cdd3e1;
+  --gray-900: #e6e9f0; /* Fundo principal claro */
+
+  --bg-gradient: linear-gradient(
+    165deg,
+    rgba(230, 233, 240, 1) 34%,
+    rgba(85, 95, 125, 1) 100%
   );
 
-  --text-default: #0a0f1a;
-  --text-muted: #272f43;
+  /* 📝 Texto no modo claro */
+  --text-default: #0a0f1a; /* Texto principal no modo claro */
+  --text-muted: #272f43; /* Texto menos importante */
 
+  /* 🔗 Links no modo claro */
   --link-color: #0b8a60;
   --link-hover: #065f46;
+
+  /* 🔔 Toastify no modo claro */
+  --toastify-text-color-light: #e6e9f0;
+  --toastify-text-color-dark: #e6e9f0;
 }

@@ -9,6 +9,8 @@ import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
+import { Tips } from '../Tips';
+import { toast } from 'react-toastify';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -26,7 +28,7 @@ export function MainForm() {
     const taskName = taskNameInput.current.value.trim();
 
     if (!taskName) {
-      alert('Digite o nome da tarefa!');
+      toast.warning('Digite o nome da tarefa!');
       return;
     }
 
@@ -42,7 +44,6 @@ export function MainForm() {
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
   }
-
   function handleInterruptTask() {
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
@@ -61,8 +62,9 @@ export function MainForm() {
       </div>
 
       <div className={styles.formRow}>
-        <p>Próximo intervalo é de 25min</p>
+        <Tips />
       </div>
+
       {state.currentCycle > 0 && (
         <div className={styles.formRow}>
           <Cycles />
