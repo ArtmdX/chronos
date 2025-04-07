@@ -1,54 +1,37 @@
-# React + TypeScript + Vite
+# ⏱️ Chronos - Pomodoro App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chronos é uma aplicação web desenvolvida com foco na produtividade, baseada na técnica Pomodoro. Com ele, você pode gerenciar suas tarefas, acompanhar o tempo de foco e manter um histórico das sessões concluídas.
 
-Currently, two official plugins are available:
+## 🧠 O que é a Técnica Pomodoro?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A Técnica Pomodoro é um método de gerenciamento de tempo que divide o trabalho em blocos de foco (geralmente 25 minutos), seguidos por pequenas pausas. A cada 4 ciclos, uma pausa maior é feita. Essa abordagem ajuda a manter a concentração, reduzir distrações e melhorar a produtividade.
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Início rápido de ciclos Pomodoro  
+- Pausas curtas e longas automáticas  
+- Registro de tarefas realizadas  
+- Histórico completo das sessões  
+- Interface limpa e responsiva  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🖥️ Acesse o App
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+👉 [Chronos - Pomodoro App](https://chronosreact.netlify.app/)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📷 Imagem da Interface
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+![Imagem da interface do Chronos](https://i.imgur.com/fkS3J0Q.png)
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML, CSS e JavaScript  
+- Vite  
+- LocalStorage (para persistência de histórico)
+
+## 📌 Como Rodar Localmente
+
+```bash
+git clone https://github.com/seu-usuario/chronos.git
+cd chronos
+npm install
+npm run dev
