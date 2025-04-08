@@ -5,6 +5,7 @@ import { taskReducer } from './taskReducer';
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 import { TaskActionTypes } from './taskActions';
 import { loadBeep } from '../../utils/loadBeep';
+import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
@@ -41,6 +42,10 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     if (!state.activeTask) {
       worker.terminate();
     }
+
+    document.title = `${formatSecondsToMinutes(
+      state.secondsRemaining,
+    )} - Chronos`;
 
     worker.postMessage(state);
   }, [worker, state]);
